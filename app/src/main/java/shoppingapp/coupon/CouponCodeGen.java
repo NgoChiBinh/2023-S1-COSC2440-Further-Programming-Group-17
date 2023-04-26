@@ -10,7 +10,8 @@ public class CouponCodeGen {
 
     private static String codeString = "";
 
-    public static String genCode(Product product) {
+    public static String genCode(Product product) 
+    {
         productCode = product.getName().
             replaceAll("\\s", "").
             toUpperCase().

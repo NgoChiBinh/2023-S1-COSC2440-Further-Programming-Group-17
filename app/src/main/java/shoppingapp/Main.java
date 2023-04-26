@@ -71,7 +71,7 @@ public class Main {
         CartsAll.addCart(cart3);
 
         //List of all carts
-        // CartsAll.allCarts();
+        CartsAll.allCarts();
 
         // Before edit
         // System.out.println(ProductCatalog.getCatalog());
@@ -104,19 +104,19 @@ public class Main {
         //Test : only one coupon per shopping cart
 
         // All percent coupons
-        Coupon coupon_percent_digi_1 = new CouponPercent(digital_1, 40);
-        Coupon coupon_percent_digi_2 = new CouponPercent(digital_2, 30);
-        Coupon coupon_percent_phys_1 = new CouponPercent(physical_1, 50);
-        Coupon coupon_percent_phys_2 = new CouponPercent(physical_2, 60);
-        Coupon coupon_percent_phys_3 = new CouponPercent(physical_3, 70);
+        // Coupon coupon_percent_digi_1 = new CouponPercent(digital_1, 40);
+        // Coupon coupon_percent_digi_2 = new CouponPercent(digital_2, 30);
+        // Coupon coupon_percent_phys_1 = new CouponPercent(physical_1, 50);
+        // Coupon coupon_percent_phys_2 = new CouponPercent(physical_2, 60);
+        // Coupon coupon_percent_phys_3 = new CouponPercent(physical_3, 70);
 
 
-        // All fixed price coupons
-        Coupon coupon_price_digi_1 = new CouponPrice(digital_1, 20.99);
-        Coupon coupon_price_digi_2 = new CouponPrice(digital_2, 30.59);
-        Coupon coupon_price_phys_1 = new CouponPrice(physical_1, 40.44);
-        Coupon coupon_price_phys_2 = new CouponPrice(physical_2, 59.99);
-        Coupon coupon_price_phys_3 = new CouponPrice(physical_3, 60);
+        // // All fixed price coupons
+        // Coupon coupon_price_digi_1 = new CouponPrice(digital_1, 20.99);
+        // Coupon coupon_price_digi_2 = new CouponPrice(digital_2, 30.59);
+        // Coupon coupon_price_phys_1 = new CouponPrice(physical_1, 40.44);
+        // Coupon coupon_price_phys_2 = new CouponPrice(physical_2, 59.99);
+        // Coupon coupon_price_phys_3 = new CouponPrice(physical_3, 60);
 
         // Testing cart ID002 and ID003
         // System.out.println(CartsAll.findCart(2));
@@ -131,10 +131,10 @@ public class Main {
         // CouponDiscount.addDiscountCart(cart2, coupon_percent_phys_3);
 
         // Apply percent coupons to cart ID003
-        CouponDiscount.addDiscountCart(cart3, coupon_percent_digi_1);
+        // CouponDiscount.addDiscountCart(cart3, coupon_percent_digi_1);
        
         
-        System.out.println(CouponDiscount.allDiscountedCarts());
+        // System.out.println(CouponDiscount.allDiscountedCarts());
 
         // // Test fixed price coupons
         // // Apply price coupons to cart ID002

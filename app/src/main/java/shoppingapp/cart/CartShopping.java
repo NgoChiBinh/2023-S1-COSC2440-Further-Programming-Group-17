@@ -24,7 +24,29 @@ public class CartShopping {
     public CartShopping() {}
 
     public Set<Product> getCart() {
-        return this.cartItems;
+        return cartItems;
+    }
+
+    public void getCartItemsName() {
+        for (Product product : cartItems) {
+            System.out.println("\t" + product.getName() + " : " + product.getPrice());
+            if (product.getWeight() > 0) 
+            {
+                System.out.println("\t" + product.getWeight() + "kg");
+            }
+        }
+    }
+
+    public boolean productInCart(Product searchProduct) {
+        boolean inCart = false;
+        for (Product product : cartItems) {
+            if(searchProduct.getName().equals(product.getName()))
+            {
+                inCart = true;
+                return inCart;
+            }
+        }
+        return inCart;
     }
 
     public int getID() {
