@@ -2,96 +2,73 @@ package shoppingapp.product;
 import java.util.*;
 /**
  * @author <Ngo Chi Binh - s3938145>
- */ 
-public class Product {
+ */
+import java.io.Serializable;
 
+public abstract class Product{
     protected String name;
-
-    protected String desc;
-
+    protected String description;
     protected int quantity;
+    protected Double price;
+    protected boolean isGift;
 
-    protected double price;
-
-    protected double weight;
-
-    public Product() {}
-
-    public Product (String name, String desc, int quantity, double price, double weight) {
+    public Product(String name, String description, int quantity, Double price, boolean isGift){
         this.name = name;
-        this.desc = desc;
+        this.description = description;
         this.quantity = quantity;
         this.price = price;
-        this.weight = weight;
+        this.isGift = isGift;
     }
 
-    public Product (String name, String desc, int quantity, double price) {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
-        this.desc = desc;
-        this.quantity = quantity;
-        this.price = price;
-        this.weight = 0;
     }
 
-    public String getName() { return name; }
+    public String getDescription() {
+        return description;
+    }
 
-    public String getDesc() { return desc; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public int getQuantity() { return quantity; }
+    public int getQuantity() {
+        return quantity;
+    }
 
-    public double getPrice() { return price; }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
-    public double getWeight () {return weight;}
+    public double getPrice() {
+        return price;
+    }
 
-    public void setDesc(String desc) {this.desc = desc;}
+    /**
+     * @param price the price to set
+     */
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
-    public void setQuantity(int quantity) {this.quantity = quantity;}
+    public boolean isGift() {
+        return isGift;
+    }
 
-    public void incrementQuantity() { ++ this.quantity ; }
-
-    public void decrementQuantity() { -- this.quantity; }
-
-    public void setPrice(double price) {this.price = price;}
-
-    public void setWeight(double weight) {this.weight = weight;}
+    public void setGift(boolean confirmation) {
+        isGift = confirmation;
+    }
 
     @Override
     public String toString() {
-        return "Product [name=" + name + ", desc=" + desc + ", quantity=" + quantity + ", price=" + price + "]";
+        return this instanceof PhysicalProduct
+                ? name + "," + description + "," + quantity + "," + price + "," + ((PhysicalProduct)this).weight + "," + isGift
+                : name + "," + description + "," + quantity + "," + price + "," + isGift;
     }
 
-    public class ProductCatalog {
-    
-        private static ArrayList <Product> catalog = new ArrayList<>();
-    
-        public ProductCatalog() {}
-    
-        public static boolean addToCatalog (Product product) {
-            return catalog.add(product);
-        }
-    
-        public static ArrayList<Product> getCatalog() {
-            return catalog;
-        }
-    
-        public static Product findProduct(String productName) {
-            Iterator<Product> iterator = catalog.iterator();
-    
-            while(iterator.hasNext()) {
-                Product product = iterator.next();
-                if (product.getName().contains(productName)) {
-                    return product;
-                }
-            }
-            return null;
-        }
-    
-        @Override
-        public String toString() {
-            return "Catalog: " + 
-                    "\n" + catalog + 
-                    "\n\n";
-        }
-    }
-
+    public abstract String getType();
 }
